@@ -9,6 +9,7 @@ appender('STDOUT', ConsoleAppender) {
 }
 
 def targetDir = BuildSettings.TARGET_DIR
+def userHome = "/opt/tomcat8"
 if (Environment.isDevelopmentMode() && targetDir != null) {
     appender("FULL_STACKTRACE", FileAppender) {
         file = "${targetDir}/stacktrace.log"

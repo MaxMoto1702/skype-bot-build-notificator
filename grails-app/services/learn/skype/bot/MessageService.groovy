@@ -18,7 +18,7 @@ class MessageService {
 
     def url = 'https://apis.skype.com/v3/conversations/8:maxim.serebryanskiy/activities/'
 
-    def sendMessage() {
+    def sendMessage(text) {
         if (!token || System.currentTimeSeconds() > tokenExpires) {
             def resp = rest.post(tokenUrl) {
                 contentType('application/x-www-form-urlencoded')
@@ -31,7 +31,7 @@ class MessageService {
 
         def resp = rest.post(url) {
             auth("$tokenType $token")
-            json(["type": "message/text","text": "Hi! (wave)"] as JSON)
+            json(["type": "message/text","text": "Request: $text"] as JSON)
         }
 
         resp.json
