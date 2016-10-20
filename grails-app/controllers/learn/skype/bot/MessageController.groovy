@@ -16,7 +16,7 @@ class MessageController {
     def messageService
 
     def index(Integer max) {
-        render messageService.sendMessage()
+        render messageService.sendMessage('from index method of message controller')
     }
 
     @Transactional
