@@ -33,7 +33,9 @@ class MessageController {
 //        message.recipient.id = parse.recipient.id
 //        message.save(flush: true)
 //        log.info("MessageActivity: $message")
-        messageService.sendMessage(request.reader.text)
+        def text = request.reader.text
+        log.info("Request text: $text")
+        messageService.sendMessage(text)
         render status: CREATED
     }
 }

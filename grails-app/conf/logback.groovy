@@ -29,7 +29,7 @@ else {
             pattern = "%level %logger - %msg%n"
         }
     }
-    root(ERROR, ['STDOUT', 'FILE'])
+    root(INFO, ['STDOUT', 'FILE'])
 }
 
 

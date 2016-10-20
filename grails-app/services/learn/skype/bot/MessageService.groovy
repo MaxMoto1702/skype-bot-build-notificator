@@ -19,6 +19,7 @@ class MessageService {
     def url = 'https://apis.skype.com/v3/conversations/8:maxim.serebryanskiy/activities/'
 
     def sendMessage(text) {
+        text = (text as String).replaceAll(/[<>]/, '_')
         if (!token || System.currentTimeSeconds() > tokenExpires) {
             def resp = rest.post(tokenUrl) {
                 contentType('application/x-www-form-urlencoded')
@@ -34,6 +35,15 @@ class MessageService {
             json(["type": "message/text","text": "Request: $text"] as JSON)
         }
 
+        log.info("Response status: $resp.status")
+        log.info("Response data: $resp.json")
+        if (resp.status >= 400) {
+            resp = rest.post(url) {
+                auth("$tokenType $token")
+                json(["type": "message/text","text": "Bad request! Response: ${resp.status} - ${resp.json}"] as JSON)
+            }
+
+        }
         resp.json
     }
 }
