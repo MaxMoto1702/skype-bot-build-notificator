@@ -22,7 +22,7 @@ class MessageController {
     @Transactional
     def save() {
 //        def parse = JSON.parse(request.reader)
-        log.debug("Request data: ${parse}")
+//        log.debug("Request data: ${parse}")
 //        def message = new MessageActivity(parse as Map)
 //        message.id = parse.id
 //        message.from = new ChannelAccount(parse.from as Map)
