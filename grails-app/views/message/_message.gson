@@ -1,0 +1,7 @@
+import learn.skype.bot.MessageActivity
+
+model {
+	MessageActivity message
+}
+
+json g.render(message)
