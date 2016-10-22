@@ -15,27 +15,12 @@ class MessageController {
 
     def messageService
 
-    def index(Integer max) {
-        render messageService.sendMessage('from index method of message controller')
-    }
-
     @Transactional
     def save() {
-//        def parse = JSON.parse(request.reader)
-//        log.debug("Request data: ${parse}")
-//        def message = new MessageActivity(parse as Map)
-//        message.id = parse.id
-//        message.from = new ChannelAccount(parse.from as Map)
-//        message.from.id = parse.from.id
-//        message.conversation = new ConversationAccount(parse.conversation as Map)
-//        message.conversation.id = parse.conversation.id
-//        message.recipient = new ChannelAccount(parse.recipient as Map)
-//        message.recipient.id = parse.recipient.id
-//        message.save(flush: true)
-//        log.info("MessageActivity: $message")
         def text = request.reader.text
         log.info("Request text: $text")
-        messageService.sendMessage(text)
+        def json = JSON.parse(request.reader)
+        messageService.receiveMessage(text: json.text, user: json.from)
         render status: CREATED
     }
 }
