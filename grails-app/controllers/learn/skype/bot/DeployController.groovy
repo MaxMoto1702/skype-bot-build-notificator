@@ -4,6 +4,8 @@ package learn.skype.bot
 import grails.rest.*
 import grails.converters.*
 
+import static org.springframework.http.HttpStatus.OK
+
 class DeployController {
 	static responseFormats = ['json', 'xml']
 
@@ -23,15 +25,18 @@ class DeployController {
 
         ])
         messageService.sendInitCard()
+        render status: OK
     }
 
     def start() {
         pauseService.reset()
         messageService.sendMessage("Установка началась...")
+        render status: OK
     }
 
     def finish() {
         pauseService.reset()
         messageService.sendMessage("Установка завершена.")
+        render status: OK
     }
 }

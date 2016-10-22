@@ -22,6 +22,7 @@ class MessageService {
     def token
 
     def receiveMessage(params) {
+        log.info("$params")
         if (params.text =~ /^подожди (\d*) минут, пожалуйста/) {
             def duration = ((params.text =~ /подожди (\d+) минут, пожалуйста/)[0][1] as Long) * 60
             pauseService.add([
@@ -122,7 +123,8 @@ class MessageService {
         if (!token || System.currentTimeSeconds() > tokenExpires) {
             def resp = rest.post(tokenUrl) {
                 contentType('application/x-www-form-urlencoded')
-                body("client_id=$CLIENT_ID&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&grant_type=client_credentials&client_secret=$CLIENT_SECRET")
+//                body("client_id=$CLIENT_ID&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&grant_type=client_credentials&client_secret=$CLIENT_SECRET")
+                body("client_id=94491a0c-d490-4485-a77f-d476e79bf6b1&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&grant_type=client_credentials&client_secret=nWy706jOcPGOHVjwZY75DLy")
             }
             tokenType = resp.json.token_type
             token = resp.json.access_token

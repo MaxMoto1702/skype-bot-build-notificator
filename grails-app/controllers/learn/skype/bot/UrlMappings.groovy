@@ -14,11 +14,11 @@ class UrlMappings {
 
         post "/api/messages"(controller: "message", action: 'save')
 
-        post "/api/deploy/init"(controller: "message", action: 'init')
-        post "/api/deploy/start"(controller: "message", action: 'start')
-        post "/api/deploy/finish"(controller: "message", action: 'finish')
+        post "/api/deploy/init"(controller: "deploy", action: 'init')
+        post "/api/deploy/start"(controller: "deploy", action: 'start')
+        post "/api/deploy/finish"(controller: "deploy", action: 'finish')
 
-        get "/api/pauses"(controller: "message", action: 'index')
+        get "/api/pauses"(controller: "pause", action: 'index')
 
         "500"(view: '/error')
         "404"(view: '/notFound')

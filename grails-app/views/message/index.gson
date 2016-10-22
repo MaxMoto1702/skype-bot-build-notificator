@@ -1,8 +1,5 @@
-import learn.skype.bot.MessageActivity
-
 model {
-	Iterable<MessageActivity> messageList
 }
 
-json tmpl.message(messageList ?: [])
+json tmpl.message([])
 

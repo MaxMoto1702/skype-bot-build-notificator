@@ -17,8 +17,6 @@ class MessageController {
 
     @Transactional
     def save() {
-        def text = request.reader.text
-        log.info("Request text: $text")
         def json = JSON.parse(request.reader)
         messageService.receiveMessage(text: json.text, user: json.from)
         render status: CREATED

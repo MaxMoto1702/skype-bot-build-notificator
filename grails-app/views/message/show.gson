@@ -1,8 +1,4 @@
-import learn.skype.bot.MessageActivity
-
 model {
-	MessageActivity message
 }
 
-//json tmpl.message(message)
 json {}
