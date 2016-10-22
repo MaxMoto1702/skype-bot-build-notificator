@@ -23,7 +23,7 @@ class MessageService {
 
     def receiveMessage(params) {
         log.info("$params")
-        if (params.text =~ /^подожди (\d*) минут, пожалуйста/) {
+        if (params.text =~ /подожди (\d*) минут, пожалуйста/) {
             def duration = ((params.text =~ /подожди (\d+) минут, пожалуйста/)[0][1] as Long) * 60
             pauseService.add([
                     start   : System.currentTimeSeconds(),
