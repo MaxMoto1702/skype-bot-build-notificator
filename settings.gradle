@@ -1,0 +1,2 @@
+rootProject.name = 'learn-skype-bot'
+include '../microsoft-bot-connector'

@@ -1,7 +1,6 @@
 package learn.skype.bot
 
-import grails.rest.*
-import grails.converters.*
+import grails.converters.JSON
 
 class PauseController {
 	static responseFormats = ['json', 'xml']
@@ -9,6 +8,6 @@ class PauseController {
     def pauseService
 	
     def index() {
-        render pauseService.get()
+        render pauseService.get() as JSON
     }
 }

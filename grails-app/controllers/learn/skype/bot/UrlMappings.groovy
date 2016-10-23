@@ -12,7 +12,7 @@ class UrlMappings {
 
         "/"(view: '/index')
 
-        post "/api/messages"(controller: "message", action: 'save')
+        post "/api/messages"(controller: "message", action: 'post')
 
         post "/api/deploy/init"(controller: "deploy", action: 'init')
         post "/api/deploy/start"(controller: "deploy", action: 'start')

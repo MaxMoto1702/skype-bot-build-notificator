@@ -1,11 +1,8 @@
 package learn.skype.bot
 
-import grails.transaction.Transactional
-
-@Transactional
 class PauseService {
 
-    def pauses
+    def pauses = []
 
     def reset() {
         pauses = []
