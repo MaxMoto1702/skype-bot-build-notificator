@@ -9,7 +9,7 @@ environments:
 grails:
     profile: angular
     codegen:
-        defaultPackage: learn.skype.bot
+        defaultPackage: maxmoto1702.skype.bot.server
     spring:
         transactionManagement:
             proxies: false

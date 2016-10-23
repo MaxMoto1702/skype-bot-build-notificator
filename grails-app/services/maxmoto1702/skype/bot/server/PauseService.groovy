@@ -1,4 +1,4 @@
-package learn.skype.bot
+package maxmoto1702.skype.bot.server
 
 class PauseService {
 

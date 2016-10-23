@@ -1,4 +1,4 @@
-package learn.skype.bot
+package maxmoto1702.skype.bot.server
 
 import grails.core.GrailsApplication
 import grails.plugins.*

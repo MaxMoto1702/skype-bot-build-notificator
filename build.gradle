@@ -13,8 +13,8 @@ buildscript {
     }
 }
 
-version "0.1"
-group "learn.skype.bot"
+version "1.0"
+group "maxmoto1702.skype.bot"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
