@@ -24,7 +24,7 @@ class DeployController {
 
         ])
         skypeService.sendHeroCard(
-                recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                recipient: [id: SkypeService.USPN_GROUP_ID],
                 title: "Через 5 минут будет установка на DEV-стенде",
                 subTitle: "Для приостановки на некоторое время, нажмите соотвествующую кнопку ниже",
                 actions: [5, 10, 15].collect { duration ->
@@ -39,7 +39,7 @@ class DeployController {
     def start() {
         pauseService.reset()
         skypeService.sendHeroCard(
-                recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                recipient: [id: SkypeService.USPN_GROUP_ID],
                 title: "Установка началась",
                 subTitle: "Об окончании установки будет сообщено"
         )
@@ -52,13 +52,13 @@ class DeployController {
         def commits = json.commits
         pauseService.reset()
         skypeService.sendHeroCard(
-                recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                recipient: [id: SkypeService.USPN_GROUP_ID],
                 title: "Установка завершена",
                 subTitle: "Обновление выполнено по ревизию $revision",
         )
         if (commits) {
             skypeService.sendMessage(
-                    recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                    recipient: [id: SkypeService.USPN_GROUP_ID],
                     text:  "<b>В сборку вошло (commits)</b>:\n" + commits.collect {
                 " - $it\n"
             }.sum().toString())

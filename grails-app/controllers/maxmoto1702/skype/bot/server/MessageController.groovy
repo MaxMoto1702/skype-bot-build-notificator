@@ -30,13 +30,13 @@ class MessageController {
 
                 ])
                 skypeService.sendMessage(
-                        recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                        recipient: [id: SkypeService.USPN_GROUP_ID],
                         text: "${activity.from.name}, ваша просьба ваша просьба услышана :)"
                 )
             } else {
                 skypeService.sendError("<b>Bad receive message!</b>\n<i>Message</i>: ${(activity).toString().replaceAll(/[<>]/, '_')}")
                 skypeService.sendMessage(
-                        recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                        recipient: [id: SkypeService.USPN_GROUP_ID],
                         text: "Я вас не понял"
                 )
             }
@@ -53,12 +53,12 @@ class MessageController {
 
                 ])
                 skypeService.sendMessage(
-                        recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                        recipient: [id: SkypeService.USPN_GROUP_ID],
                         text: "${json.from?.name}, ваша просьба ваша просьба услышана :)")
             } else {
                 skypeService.sendError("<b>Bad receive message!</b>\n<i>Message</i>: ${(json).toString().replaceAll(/[<>]/, '_')}")
                 skypeService.sendMessage(
-                        recipient: [id: SkypeService.SANDBOX_GROUP_ID],
+                        recipient: [id: SkypeService.USPN_GROUP_ID],
                         text: "Я вас не понял"
                 )
             }
